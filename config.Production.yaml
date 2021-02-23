@@ -1,6 +1,6 @@
 environment: "Production"
 connectionString: ""
-cron: "17 17 * * *"
+cron: "0 18 * * *"
 telegramBaseUrl: "https://api.telegram.org/bot"
 botKey: ""
 chatId: 0
