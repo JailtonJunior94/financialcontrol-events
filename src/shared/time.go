@@ -1,6 +1,9 @@
 package shared
 
-import "time"
+import (
+	"log"
+	"time"
+)
 
 type Time struct {
 	time.Time
@@ -16,9 +19,14 @@ func NewTime(timeConfig ...Time) *Time {
 		return &newConfig
 	}
 
+	location, err := time.LoadLocation("America/Sao_Paulo")
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	return &Time{
 		Now:      time.Now(),
-		Location: time.Now().Location(),
+		Location: location,
 	}
 }
 

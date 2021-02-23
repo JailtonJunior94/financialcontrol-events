@@ -32,7 +32,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("entryID: %d\n", entryID)
+
+	fmt.Printf("ID da Função: %d\n", entryID)
+	fmt.Println("Aguardando próxima execução...")
 
 	c.Run()
 }
