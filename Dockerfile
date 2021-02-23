@@ -7,5 +7,4 @@ COPY . .
 RUN go clean --modcache
 RUN GOOS=linux go build main.go
 
-EXPOSE 5000
 ENTRYPOINT ["./main"]
