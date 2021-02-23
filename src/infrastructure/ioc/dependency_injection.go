@@ -1,11 +1,21 @@
 package ioc
 
-var ()
+import (
+	"github.com/jailtonjunior94/financialcontrol-events/src/infrastructure/database"
+	"github.com/jailtonjunior94/financialcontrol-events/src/infrastructure/repositories"
+)
 
-func New() {
+var (
+	SqlConnection     database.ISqlConnection
+	AccountRepository repositories.IAccountRepository
+)
+
+func New(sqlConnection database.ISqlConnection) {
 	/* Database */
+	SqlConnection = sqlConnection
 
 	/* Repositories */
+	AccountRepository = repositories.NewAccountRepository(SqlConnection)
 
 	/* Services */
 

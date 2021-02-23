@@ -5,6 +5,7 @@ import (
 	"log"
 	"time"
 
+	"github.com/jailtonjunior94/financialcontrol-events/src/infrastructure/database"
 	"github.com/jailtonjunior94/financialcontrol-events/src/infrastructure/environments"
 	"github.com/jailtonjunior94/financialcontrol-events/src/infrastructure/ioc"
 	"github.com/jailtonjunior94/financialcontrol-events/src/shared"
@@ -14,19 +15,32 @@ import (
 
 func main() {
 	environments.New()
-	ioc.New()
+
+	sqlConnection := database.NewConnection()
+	defer sqlConnection.Disconnect()
+
+	ioc.New(sqlConnection)
 
 	c := cron.New()
 
 	timer := shared.NewTime()
 
-	s := timer.StartDate()
-	e := timer.EndDate()
-	l := timer.DaysInMonth(s)
+	startDate := timer.StartDate()
+	endDate := timer.EndDate()
 
-	fmt.Printf("s: %s\n", s)
-	fmt.Printf("e: %s\n", e)
-	fmt.Printf("l: %d\n", l)
+	a := ioc.AccountRepository
+	b, err := a.AccountsByDate(startDate, endDate)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	for _, i := range b {
+		fmt.Printf("AccountId: %s\n", i.AccountId)
+		fmt.Printf("AccountDate: %s\n", i.AccountDate)
+		fmt.Printf("Description: %s\n", i.Description)
+		fmt.Printf("Value: %f\n", i.Value)
+		fmt.Println("-------")
+	}
 
 	entryID, err := c.AddFunc(environments.Cron, handle)
 	if err != nil {

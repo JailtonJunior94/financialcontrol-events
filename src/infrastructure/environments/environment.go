@@ -9,12 +9,12 @@ import (
 )
 
 var (
-	Environment      = ""
-	ConnectionString = ""
-	Cron             = ""
-	TelegramBaseUrl  = ""
-	BotKey           = ""
-	ChatId           = 0
+	Environment         = ""
+	SqlConnectionString = ""
+	Cron                = ""
+	TelegramBaseUrl     = ""
+	BotKey              = ""
+	ChatId              = 0
 )
 
 func New() {
@@ -30,7 +30,7 @@ func New() {
 	}
 
 	Environment = viper.GetString("environment")
-	ConnectionString = viper.GetString("connectionString")
+	SqlConnectionString = viper.GetString("sqlConnectionString")
 	Cron = viper.GetString("cron")
 	TelegramBaseUrl = viper.GetString("telegramBaseUrl")
 	BotKey = viper.GetString("botKey")

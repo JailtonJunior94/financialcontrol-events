@@ -1,6 +1,6 @@
 environment: "Development"
-connectionString: ""
-cron: "0 0 5 * *"
+sqlConnectionString: "sqlserver://sa:@stefany@1994@localhost:1433?database=AccountControl"
+cron: "* * * * *"
 telegramBaseUrl: "https://api.telegram.org/bot"
 botKey: ""
 chatId: 0
