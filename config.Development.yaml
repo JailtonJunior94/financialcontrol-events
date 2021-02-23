@@ -1,0 +1,6 @@
+environment: "Development"
+connectionString: ""
+cron: "0 0 5 * *"
+telegramBaseUrl: "https://api.telegram.org/bot"
+botKey: ""
+chatId: 0
