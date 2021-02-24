@@ -20,17 +20,9 @@ jobs:
     name: "Variable Substitution"
     runs-on: ubuntu-20.04
     steps:
-
-    - name: Workspace
-      run: cd ${{ github.workspace }}
-    
-    - name: Ls
-      run: ls
-
-
     - uses: microsoft/variable-substitution@v1 
       with:
-        files: '*.yaml'
+       files: 'Application/*.yaml'
       env:
         sqlConnectionString: ${{ secrets.SQL_CONNECTION_STRING }}
         botKey: ${{ secrets.BOT_KEY }}
