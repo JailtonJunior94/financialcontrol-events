@@ -9,8 +9,8 @@ const (
 				FROM
 					dbo.[Accounts] (NOLOCK)
 				WHERE
-					[AccountDate] BETWEEN @startDate
-				AND @endDate`
+					[AccountDate] BETWEEN CONVERT(DATETIME, @startDate)
+					AND CONVERT(DATETIME, @endDate)`
 	Invoices = `SELECT
 					CAST([InvoiceId] AS CHAR(36)) InvoiceId,
 					[Description],
@@ -20,13 +20,13 @@ const (
 					[InvoiceQuantity],
 					[InvoiceValue],
 					[InvoiceValueTotal],
-					[UserId],
-					[CardId],
-					[CategoryId],
+					CAST([UserId] AS CHAR(36)) UserId,
+					CAST([CardId] AS CHAR(36)) CardId,
+					CAST([CategoryId] AS CHAR(36)) CategoryId,
 					[PurchaseDate]
 				FROM
 					dbo.Invoices (NOLOCK)
 				WHERE
-					InvoiceDate BETWEEN @startDate
-				AND @endDate`
+					InvoiceDate BETWEEN CONVERT(DATETIME, @startDate)
+				AND CONVERT(DATETIME, @endDate)`
 )

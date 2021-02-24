@@ -1,6 +1,6 @@
 environment: "Production"
 sqlConnectionString: "__CONNECTION_STRING__"
-cron: "30 10 * * *"
+cron: "0 * * * *"
 telegramBaseUrl: "https://api.telegram.org/bot"
 botKey: "__BOT_KEY__"
 chatId: 0

@@ -14,7 +14,7 @@ var (
 	Cron                = ""
 	TelegramBaseUrl     = ""
 	BotKey              = ""
-	ChatId              = 0
+	ChatId              = int64(0)
 )
 
 func New() {
@@ -34,5 +34,5 @@ func New() {
 	Cron = viper.GetString("cron")
 	TelegramBaseUrl = viper.GetString("telegramBaseUrl")
 	BotKey = viper.GetString("botKey")
-	ChatId = viper.GetInt("chatId")
+	ChatId = viper.GetInt64("chatId")
 }

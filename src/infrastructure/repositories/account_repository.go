@@ -10,7 +10,7 @@ import (
 )
 
 type IAccountRepository interface {
-	AccountsByDate(startDate time.Time, endDate time.Time) (accounts []entities.Account, err error)
+	AccountsByDate(ch chan<- []entities.Account, startDate time.Time, endDate time.Time) (accounts []entities.Account)
 }
 
 type AccountRepository struct {
@@ -21,14 +21,12 @@ func NewAccountRepository(db database.ISqlConnection) IAccountRepository {
 	return &AccountRepository{db}
 }
 
-func (a *AccountRepository) AccountsByDate(startDate time.Time, endDate time.Time) (accounts []entities.Account, err error) {
+func (a *AccountRepository) AccountsByDate(ch chan<- []entities.Account, startDate time.Time, endDate time.Time) (accounts []entities.Account) {
 	database := a.Db.Connect()
-
-	startParam := sql.Named("startDate", startDate.Format("2006-01-02 15:04:05"))
-	endParam := sql.Named("endDate", endDate.Format("2006-01-02 15:04:05"))
-
-	if err := database.Select(&accounts, queries.Accounts, startParam, endParam); err != nil {
-		return nil, err
+	if err := database.Select(&accounts, queries.Accounts, sql.Named("startDate", startDate), sql.Named("endDate", endDate)); err != nil {
+		ch <- make([]entities.Account, 0)
+		return nil
 	}
-	return accounts, nil
+	ch <- accounts
+	return accounts
 }
