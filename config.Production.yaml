@@ -1,5 +1,5 @@
 environment: "Production"
-sqlConnectionString: "__ConnectionString__"
+sqlConnectionString: "__CONNECTION_STRING__"
 cron: "* * * * *"
 telegramBaseUrl: "https://api.telegram.org/bot"
 botKey: "__BotKey__"

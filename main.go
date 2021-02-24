@@ -16,6 +16,8 @@ import (
 func main() {
 	environments.New()
 
+	fmt.Printf("SqlConnectionString: %s\n", environments.SqlConnectionString)
+
 	sqlConnection := database.NewConnection()
 	defer sqlConnection.Disconnect()
 
