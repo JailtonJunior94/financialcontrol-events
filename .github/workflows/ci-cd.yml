@@ -20,11 +20,9 @@ jobs:
     name: "Variable Substitution"
     runs-on: ubuntu-20.04
     steps:
-    - name: LS
-      run: ls 
     - uses: microsoft/variable-substitution@v1 
       with:
-        files: 'financialcontrol-events/config.Production.yaml'
+        files: '*.yaml'
       env:
         sqlConnectionString: ${{ secrets.SQL_CONNECTION_STRING }}
         botKey: ${{ secrets.BOT_KEY }}
