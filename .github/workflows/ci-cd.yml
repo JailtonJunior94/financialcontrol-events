@@ -20,6 +20,14 @@ jobs:
     name: "Variable Substitution"
     runs-on: ubuntu-20.04
     steps:
+
+    - name: Workspace
+      run: cd ${{ github.workspace }}
+    
+    - name: Ls
+      run: ls
+
+
     - uses: microsoft/variable-substitution@v1 
       with:
         files: '*.yaml'
