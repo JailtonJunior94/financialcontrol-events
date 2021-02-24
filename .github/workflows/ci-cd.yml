@@ -6,34 +6,26 @@ on:
     branches: [develop]
 
 jobs:
-  golint:
-    name: "Go Lint"
+  build-deploy:
+    name: "Build And Deploy"
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: golangci-lint
+      - name: 'Golang Linter'
         uses: golangci/golangci-lint-action@v2
         with:
           version: v1.29
 
-  variable-substitution:
-    name: "Variable Substitution"
-    runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v2
-    - uses: microsoft/variable-substitution@v1 
-      with:
-       files: ${{ github.workspace }}/config.Production.yaml
-      env:
-        sqlConnectionString: ${{ secrets.SQL_CONNECTION_STRING }}
-        botKey: ${{ secrets.BOT_KEY }}
-        chatId: ${{ secrets.CHAT_ID }}
+      - name: Variable Substitution
+      - uses: microsoft/variable-substitution@v1 
+        with:
+          files: ${{ github.workspace }}/*.yaml
+        env:
+          sqlConnectionString: ${{ secrets.SQL_CONNECTION_STRING }}
+          botKey: ${{ secrets.BOT_KEY }}
+          chatId: ${{ secrets.CHAT_ID }}
 
-  deploy-heroku:
-    name: "Deploy to Heroku"
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v2
+      - name: "Deploy to Heroku"
       - uses: akhileshns/heroku-deploy@v3.11.10
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
