@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: microsoft/variable-substitution@v1 
       with:
-        files: '${{ github.workspace }}/config.Production.yaml'
+        files: 'financialcontrol-events/config.Production.yaml'
       env:
         sqlConnectionString: ${{ secrets.SQL_CONNECTION_STRING }}
         botKey: ${{ secrets.BOT_KEY }}
