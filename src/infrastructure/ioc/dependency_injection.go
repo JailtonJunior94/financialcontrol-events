@@ -1,16 +1,18 @@
 package ioc
 
 import (
+	"github.com/jailtonjunior94/financialcontrol-events/src/application/handlers"
 	"github.com/jailtonjunior94/financialcontrol-events/src/infrastructure/database"
 	"github.com/jailtonjunior94/financialcontrol-events/src/infrastructure/repositories"
 	"github.com/jailtonjunior94/financialcontrol-events/src/infrastructure/telegram"
 )
 
 var (
-	SqlConnection     database.ISqlConnection
-	AccountRepository repositories.IAccountRepository
-	InvoiceRepository repositories.IInvoiceRepository
-	Telegram          telegram.ITelegram
+	SqlConnection       database.ISqlConnection
+	AccountRepository   repositories.IAccountRepository
+	InvoiceRepository   repositories.IInvoiceRepository
+	Telegram            telegram.ITelegram
+	NotificationHandler handlers.INotificationHandler
 )
 
 func New(sqlConnection database.ISqlConnection) {
@@ -24,7 +26,6 @@ func New(sqlConnection database.ISqlConnection) {
 	/* Telegram */
 	Telegram = telegram.NewTelegramService()
 
-	/* Services */
-
 	/* Handlers */
+	NotificationHandler = handlers.NewNotificationHandler(AccountRepository, InvoiceRepository, Telegram)
 }

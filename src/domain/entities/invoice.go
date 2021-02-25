@@ -16,3 +16,13 @@ type Invoice struct {
 	CategoryId        string    `db:"CategoryId"`
 	PurchaseDate      time.Time `db:"PurchaseDate"`
 }
+
+func SumInvoices(invoices []Invoice) float64 {
+	var total float64
+
+	for _, i := range invoices {
+		total += i.InvoiceValue
+	}
+
+	return total
+}

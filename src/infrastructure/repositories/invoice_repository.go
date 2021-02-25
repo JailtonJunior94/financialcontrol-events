@@ -23,7 +23,6 @@ func NewInvoiceRepository(db database.ISqlConnection) IInvoiceRepository {
 
 func (a *InvoiceRepository) InvoiceByDate(ch chan<- []entities.Invoice, startDate time.Time, endDate time.Time) (invoices []entities.Invoice) {
 	database := a.Db.Connect()
-
 	if err := database.Select(&invoices, queries.Invoices, sql.Named("startDate", startDate), sql.Named("endDate", endDate)); err != nil {
 		ch <- make([]entities.Invoice, 0)
 		return nil

@@ -3,12 +3,12 @@ package telegram
 import (
 	"bytes"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"net/http"
 
 	"github.com/jailtonjunior94/financialcontrol-events/src/domain/dtos"
 	"github.com/jailtonjunior94/financialcontrol-events/src/infrastructure/environments"
+	"github.com/jailtonjunior94/financialcontrol-events/src/shared"
 )
 
 type ITelegram interface {
@@ -36,7 +36,7 @@ func (t *Telegram) SendMessage(message string) error {
 	}
 
 	if res.StatusCode != http.StatusOK {
-		return errors.New("unexpected status" + res.Status)
+		return shared.UnexpectedError
 	}
 
 	return nil
