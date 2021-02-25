@@ -11,28 +11,34 @@ jobs:
     name: "Build And Deploy"
 
     steps:
-    - name: Checkout GithubActions
-      uses: actions/checkout@v2
+      - name: Checkout GithubActions
+        uses: actions/checkout@v2
 
-    - name: 'Golang Linter'
-      uses: golangci/golangci-lint-action@v2
-      with:
-        version: v1.29
+      - name: "Golang Linter"
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: v1.29
 
-    - name: Variable Substitution
-      uses: microsoft/variable-substitution@v1 
-      with:
-        files: ${{ github.workspace }}/config.Production.yaml
-      env:
-        sqlConnectionString: ${{ secrets.SQL_CONNECTION_STRING }}
-        botKey: ${{ secrets.BOT_KEY }}
-        chatId: ${{ secrets.CHAT_ID }}
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-    - name: "Deploy to Heroku"
-      uses: akhileshns/heroku-deploy@v3.11.10
-      with:
-        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-        heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-        heroku_email: ${{ secrets.HEROKU_EMAIL }}
-        usedocker: true
-        docker_heroku_process_type: worker
+      - name: Variable Substitution
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: ${{ github.workspace }}/config.Production.yaml
+        env:
+          sqlConnectionString: ${{ secrets.SQL_CONNECTION_STRING }}
+          botKey: ${{ secrets.BOT_KEY }}
+          chatId: ${{ secrets.CHAT_ID }}
+
+      - name: "Deploy to Heroku"
+        uses: akhileshns/heroku-deploy@v3.11.10
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          usedocker: true
+          docker_heroku_process_type: worker

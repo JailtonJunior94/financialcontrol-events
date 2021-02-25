@@ -1,5 +1,5 @@
 ## Sobre
-A ideia do projeto Financial Control Events nasceu com a necessidade de ser notificado com as despesas de cartões e despesas via telegram, trazendo a somatória de tudo que foi gasto no mês.
+A ideia do projeto Financial Control Events nasceu com a necessidade de ser notificado com as despesas de cartões e contas mensais via telegram, trazendo a somatória de tudo que foi gasto no mês.
 
 ## Tecnologias Utilizadas 🚀
 * **[Golang](https://golang.org/)**
