@@ -1,0 +1,22 @@
+@startuml desenho-arquitetura
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+
+!include DEVICONS/go.puml
+!include DEVICONS/msql_server.puml
+
+left to right direction
+
+System_Boundary(fluxo, "Financial Control Events") {
+    Container(cron, "Cron Job", "Golang", "The main cron job process", "go")
+    ContainerDb(db, "Database", "Microsoft SQL", "Holds invoice information", "msql_server")
+    Rel(cron, db, "1º Reads invoices and accounts", "go-mssqldb")
+}
+
+System(telegram, "Telegram Bot API", "The Bot API is an HTTP-based interface created for developers")
+Rel(cron, telegram, "2º Send notification with informations", "http/json")
+
+@enduml
