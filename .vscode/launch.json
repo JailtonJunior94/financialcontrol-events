@@ -6,7 +6,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}",
+            "program": "${workspaceFolder}/main.go",
             "env": {
                 "ENVIRONMENT": "Development"
             },
@@ -17,7 +17,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}",
+            "program": "${workspaceFolder}/main.go",
             "env": {
                 "ENVIRONMENT": "Production"
             },

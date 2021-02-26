@@ -14,3 +14,15 @@ A ideia do projeto Financial Control Events nasceu com a necessidade de ser noti
 <p align="center">
   <img src="docs/desenho-arquitetura.png" width="400" title="Main">
 </p>
+
+## Testes de unidade
+Para gerar o arquivo coverage da aplicação
+```
+go test --coverprofile tests/coverage.txt ./...
+go test --coverprofile tests/coverage.out ./...
+```
+Para gerar html com informações detalhadas do teste
+```
+go tool cover --html=tests/coverage.txt
+go tool cover --html=tests/coverage.out
+```

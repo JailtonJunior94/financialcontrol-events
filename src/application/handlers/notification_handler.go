@@ -37,7 +37,7 @@ func (n *NotificationHandler) SendNotification() {
 	message := n.Format(sumInvoices, sumAccounts, percentageAccounts, total, timer.Now)
 
 	if err := n.Telegram.SendMessage(message); err != nil {
-		log.Fatal(err)
+		log.Println(err)
 	}
 
 	fmt.Printf("[INFO]: Finalização do Processo em: %s\n", time.Since(timer.Now))
@@ -89,11 +89,8 @@ func (n *NotificationHandler) Format(sumInvoices, sumAccounts, percentageAccount
 			 Fechamento do mês: %s
 
 			Despesas da Casa: %s
-
 			40%% das Despesas da Casa: %s
-
 			Cartões: %s
-
 			Total: %s 
 
 			O processo levou %s para executar
