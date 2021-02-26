@@ -8,4 +8,5 @@ require (
 	github.com/leekchan/accounting v1.0.0
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/spf13/viper v1.7.1
+	github.com/stretchr/testify v1.7.0
 )
