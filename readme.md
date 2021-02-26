@@ -26,3 +26,9 @@ Para gerar html com informações detalhadas do teste
 go tool cover --html=tests/coverage.txt
 go tool cover --html=tests/coverage.out
 ```
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=alert_status)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=bugs)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=code_smells)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=coverage)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
