@@ -1,0 +1,12 @@
+mode: set
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:27.142,29.2 1 0
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:31.50,39.56 6 1
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:43.2,43.81 1 1
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:39.56,41.3 1 1
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:46.126,58.25 6 1
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:67.2,67.27 1 1
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:58.25,59.10 1 1
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:60.38,61.24 1 1
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:62.38,63.24 1 1
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:70.155,77.2 5 1
+github.com/jailtonjunior94/financialcontrol-events/src/application/handlers/notification_handler.go:79.121,102.2 8 1
