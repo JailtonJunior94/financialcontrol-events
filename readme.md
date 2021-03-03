@@ -1,3 +1,12 @@
+# Financial Control Events
+
+[![Go](https://github.com/JailtonJunior94/financialcontrol-events/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/JailtonJunior94/financialcontrol-events/actions/workflows/ci-cd.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=alert_status)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=bugs)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=code_smells)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=coverage)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
+
 ## Sobre
 A ideia do projeto Financial Control Events nasceu com a necessidade de ser notificado com as despesas de cartões e contas mensais via telegram, trazendo a somatória de tudo que foi gasto no mês.
 
@@ -26,9 +35,3 @@ Para gerar html com informações detalhadas do teste
 go tool cover --html=tests/coverage.txt
 go tool cover --html=tests/coverage.out
 ```
-
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=alert_status)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=bugs)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=code_smells)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=coverage)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=JailtonJunior94_financialcontrol-events&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=JailtonJunior94_financialcontrol-events)
