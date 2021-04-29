@@ -1,10 +1,16 @@
-FROM golang:1.16-alpine
-
-WORKDIR /go/src/
+FROM golang:1.16-alpine3.13 AS builder
+WORKDIR /app
 
 COPY . .
 
 RUN go clean --modcache
-RUN GOOS=linux go build main.go
+RUN GOOS=linux go build -o main main.go
 
-ENTRYPOINT ["./main"]
+FROM alpine:3.13
+WORKDIR /app
+
+COPY --from=builder /app/main .
+COPY config.Development.yaml .
+COPY config.Production.yaml .
+
+CMD [ "/app/main" ]
